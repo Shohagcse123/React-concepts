@@ -18,6 +18,7 @@ console.log(productname);
         <p>
           I am a React person;
         </p>
+        <MovieCounter></MovieCounter>
         <ul>
   {
    
@@ -42,9 +43,31 @@ console.log(productname);
         }
         <Count> </Count>
         <User></User>
+        
       </header>
     </div>
   );
+}
+function MovieCounter()
+{
+  const [count,setCount]=useState(0);
+  return(
+    <div>
+      <button onClick={()=>setCount(count+1)}>Add Movie</button>
+      <h3>Number of movies added:{count}</h3>
+      <MoiveDisplay mcnt={count}></MoiveDisplay>
+      <MoiveDisplay mcnt={count+1}></MoiveDisplay>
+      <MoiveDisplay mcnt={count-1}></MoiveDisplay>
+    </div>
+  )
+}
+function MoiveDisplay(props)
+{
+  return(
+    <div>
+      <h3>Movies I have acted:{props.mcnt}</h3>
+    </div>
+  )
 }
 function Count ()
 {
@@ -125,6 +148,8 @@ function Person (props){
   
   
 }
+
+
 
 
 export default App;
